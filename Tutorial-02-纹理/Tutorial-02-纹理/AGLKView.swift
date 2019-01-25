@@ -39,20 +39,21 @@ extension AGLKView {
     
     fileprivate func render() {
         
-        glClearColor(0, 1.0, 0, 1.0)
+        glClearColor(1.0, 1.0, 0, 1.0)
         glClear(GLbitfield(GL_COLOR_BUFFER_BIT))
         
         glViewport(0, 0, GLsizei(frame.size.width), GLsizei(frame.size.height))
         
         // 注:纹理上下颠倒,这是因为OpenGL要求y轴0.0坐标是在图片的底部的，但是图片的y轴0.0坐标通常在顶部。
-        // 解决:glsl 里面 反转 y 轴(gl_Position = vec4(vPosition.x,-vPosition.y,vPosition.z,1.0))
+        // 解决1:glsl 里面 反转 y 轴(gl_Position = vec4(vPosition.x,-vPosition.y,vPosition.z,1.0))
+        // 解决2:纹理坐标(s,t) -> (s,abs(t - 1))
         let vertices: [GLfloat] = [
-            0.5, 0.5, -1,       1, 1,   // 右上
-            0.5, -0.5, -1,      1, 0,   // 右下
-            -0.5, -0.5, -1,     0, 0,   // 左下
-            -0.5, -0.5, -1,     0, 0,   // 左下
-            -0.5, 0.5, -1,      0, 1,   // 左上
-            0.5, 0.5, -1,       1, 1    // 右上
+            0.5, 0.5, -1,       1, 1,   // 右上               1, 0
+            0.5, -0.5, -1,      1, 0,   // 右下               1, 1
+            -0.5, -0.5, -1,     0, 0,   // 左下               0, 1
+            -0.5, -0.5, -1,     0, 0,   // 左下               0, 1
+            -0.5, 0.5, -1,      0, 1,   // 左上               0, 0
+            0.5, 0.5, -1,       1, 1    // 右上               1, 0
         ]
         
         
@@ -76,14 +77,13 @@ extension AGLKView {
             GLsizei(MemoryLayout<GLfloat>.size * 5), UnsafeRawPointer(bitPattern: 0))
         glEnableVertexAttribArray(positionSlot)
         
-        let textCoord = glGetAttribLocation(self.myProgram!, "textCoordinate")
         glVertexAttribPointer(
-            GLuint(textCoord),
+            GLuint(textCoordSlot),
             2,
             GLenum(GL_FLOAT),
             GLboolean(GL_FALSE),
             GLsizei(MemoryLayout<GLfloat>.size * 5), UnsafeRawPointer(bitPattern:3 * MemoryLayout<GLfloat>.size))
-        glEnableVertexAttribArray(GLuint(textCoord))
+        glEnableVertexAttribArray(GLuint(textCoordSlot))
         
         
         setupTexture(fileName: "dungeon_01.jpg")
@@ -162,7 +162,7 @@ extension AGLKView {
     
     fileprivate func setupTexture(fileName:String) {
         
-        // 1获取图片的CGImageRef
+        // 获取图片的CGImageRef
         guard let spriteImage = UIImage(named: fileName)?.cgImage else {
             print("Failed to load image \(fileName)")
             return
@@ -176,23 +176,24 @@ extension AGLKView {
         
         let spriteContext = CGContext(data: spriteData, width: width, height: height, bitsPerComponent: 8, bytesPerRow: width*4, space: spriteImage.colorSpace!, bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
         
-        // 3在CGContextRef上绘图
+        // 在CGContextRef上绘图
         spriteContext?.draw(spriteImage, in: CGRect(x: 0, y: 0, width: width, height: height))
         
-        // 4绑定纹理到默认的纹理ID（这里只有一张图片，故而相当于默认于片元着色器里面的colorMap，如果有多张图不可以这么做）
+        // 绑定纹理到默认的纹理ID（这里只有一张图片，故而相当于默认于片元着色器里面的colorMap，如果有多张图不可以这么做）
         glBindTexture(GLenum(GL_TEXTURE_2D), 0);
         
+        // 为当前绑定的纹理对象设置环绕、过滤方式
         glTexParameteri( GLenum(GL_TEXTURE_2D), GLenum(GL_TEXTURE_MIN_FILTER), GL_LINEAR );
         glTexParameteri( GLenum(GL_TEXTURE_2D), GLenum(GL_TEXTURE_MAG_FILTER), GL_LINEAR );
         glTexParameteri( GLenum(GL_TEXTURE_2D), GLenum(GL_TEXTURE_WRAP_S), GL_CLAMP_TO_EDGE);
         glTexParameteri( GLenum(GL_TEXTURE_2D), GLenum(GL_TEXTURE_WRAP_T), GL_CLAMP_TO_EDGE);
         
+        // 加载并生成纹理
         let fw = width
         let fh = height;
         glTexImage2D(GLenum(GL_TEXTURE_2D), 0, GL_RGBA, GLsizei(fw), GLsizei(fh), 0, GLenum(GL_RGBA), GLenum(GL_UNSIGNED_BYTE), spriteData);
         
-        glBindTexture(GLenum(GL_TEXTURE_2D), 0);
-        
+        // 释放资源
         free(spriteData)
     }
     

@@ -16,7 +16,7 @@
 		E83ED72521F9B6D600D91690 /* shaderf.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E83ED72321F9B6D600D91690 /* shaderf.glsl */; };
 		E83ED72621F9B6D600D91690 /* shaderv.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E83ED72421F9B6D600D91690 /* shaderv.glsl */; };
 		E83ED72821F9B6E800D91690 /* AGLKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E83ED72721F9B6E800D91690 /* AGLKView.swift */; };
-		E83ED72A21F9BAAC00D91690 /* dungeon_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E83ED72921F9BAAC00D91690 /* dungeon_01.jpg */; };
+		E83ED72E21FAAA3900D91690 /* dungeon_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E83ED72D21FAAA3900D91690 /* dungeon_01.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -31,7 +31,7 @@
 		E83ED72321F9B6D600D91690 /* shaderf.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shaderf.glsl; sourceTree = "<group>"; };
 		E83ED72421F9B6D600D91690 /* shaderv.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shaderv.glsl; sourceTree = "<group>"; };
 		E83ED72721F9B6E800D91690 /* AGLKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGLKView.swift; sourceTree = "<group>"; };
-		E83ED72921F9BAAC00D91690 /* dungeon_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dungeon_01.jpg; sourceTree = "<group>"; };
+		E83ED72D21FAAA3900D91690 /* dungeon_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dungeon_01.jpg; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -64,7 +64,7 @@
 		E83ED70D21F9B6AB00D91690 /* Tutorial-02-纹理 */ = {
 			isa = PBXGroup;
 			children = (
-				E83ED72921F9BAAC00D91690 /* dungeon_01.jpg */,
+				E83ED72D21FAAA3900D91690 /* dungeon_01.jpg */,
 				E83ED72021F9B6C700D91690 /* Utils */,
 				E83ED70E21F9B6AB00D91690 /* AppDelegate.swift */,
 				E83ED71021F9B6AB00D91690 /* ViewController.swift */,
@@ -146,11 +146,11 @@
 			buildActionMask = 2147483647;
 			files = (
 				E83ED71921F9B6AD00D91690 /* LaunchScreen.storyboard in Resources */,
-				E83ED72A21F9BAAC00D91690 /* dungeon_01.jpg in Resources */,
 				E83ED72521F9B6D600D91690 /* shaderf.glsl in Resources */,
 				E83ED71621F9B6AD00D91690 /* Assets.xcassets in Resources */,
 				E83ED71421F9B6AB00D91690 /* Main.storyboard in Resources */,
 				E83ED72621F9B6D600D91690 /* shaderv.glsl in Resources */,
+				E83ED72E21FAAA3900D91690 /* dungeon_01.jpg in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
