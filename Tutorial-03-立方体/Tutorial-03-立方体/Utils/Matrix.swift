@@ -289,6 +289,7 @@ public struct Matrix {
         Matrix.matrixMultiply(resultM4: result, aM4: &frust, bM4: result)
     }
     
+    // 根据eye朝向target的视线，以及up定义的上方向，返回一个透视投影矩阵。
     static func lookAt(resultM4 result:UnsafeMutablePointer<MatrixArray<Float>>, eye:UnsafePointer<Vec3>, target:UnsafePointer<Vec3>, up:UnsafePointer<Vec3>) {
         
         var side = Vec3(x: 0, y: 0, z: 0)

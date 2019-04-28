@@ -150,6 +150,7 @@ extension AGLKView {
         glEnableVertexAttribArray(positionSlot)
         
         let textCoord = glGetAttribLocation(self.myProgram!, "textCoordinate")
+    
         glVertexAttribPointer(
             GLuint(textCoord),
             2,
@@ -169,7 +170,7 @@ extension AGLKView {
         Matrix.matrixLoadIdentity(resultM4: &projectionMatrix)
         let aspect = width / height
         
-        //        我们设置视锥体的近裁剪面到观察者的距离为 1， 远裁剪面到观察者的距离为 20，视角为 60度，然后装载投影矩阵。默认的观察者位置在原点，视线朝向 -Z 方向，因此近裁剪面其实就在 z = -5 这地方，远裁剪面在 z = -20 这地方，z 值不在(-5, -20) 之间的物体是看不到的
+        //        我们设置视锥体的近裁剪面到观察者的距离为 0.1， 远裁剪面到观察者的距离为 100，视角为 35度，然后装载投影矩阵。默认的观察者位置在原点，视线朝向 -Z 方向，因此近裁剪面其实就在 z = -0.01 这地方，远裁剪面在 z = -100 这地方，z 值不在(-0.01, -100) 之间的物体是看不到的
         Matrix.perspective(resultM4: &projectionMatrix, 35, Float(aspect), 0.1, 100)  //透视变换，视角30°
         
         // 设置glsl投影矩阵
@@ -185,11 +186,12 @@ extension AGLKView {
         var targetVec3 = Vec3(x:0,y:0,z:0)
         var upVec3 = Vec3(x:0,y:1,z:0)
         
+        
         Matrix.lookAt(resultM4: &viewMatrix, eye: &eyeVec3, target: &targetVec3, up: &upVec3)
         glUniformMatrix4fv(GLint(viewSlot), 1, GLboolean(GL_FALSE), viewMatrix.array)
         
         // 平移
-        // 设置 z 值 (-5,-20)之间
+        // 设置 z 值 (-0.01,-100)之间
         Matrix.matrixTranslate(resultM4: &modelViewMatrix, tx: 0, ty: 0, tz: -3)
         
         var rotationMatrix = Matrix.matrix4(0)
@@ -335,6 +337,7 @@ extension AGLKView {
         
         let fw = width
         let fh = height;
+
         glTexImage2D(GLenum(GL_TEXTURE_2D), 0, GL_RGBA, GLsizei(fw), GLsizei(fh), 0, GLenum(GL_RGBA), GLenum(GL_UNSIGNED_BYTE), spriteData);
         
         glBindTexture(GLenum(GL_TEXTURE_2D), 0);

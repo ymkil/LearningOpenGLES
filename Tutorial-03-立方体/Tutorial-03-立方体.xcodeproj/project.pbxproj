@@ -18,7 +18,7 @@
 		E812E0D6226EA25600C7E180 /* AGLKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E812E0D5226EA25600C7E180 /* AGLKView.swift */; };
 		E812E0D9226EA28600C7E180 /* shaderf.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E812E0D7226EA28600C7E180 /* shaderf.glsl */; };
 		E812E0DA226EA28600C7E180 /* shaderv.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E812E0D8226EA28600C7E180 /* shaderv.glsl */; };
-		E812E0DC226EA3C100C7E180 /* dungeon_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E812E0DB226EA3C100C7E180 /* dungeon_01.jpg */; };
+		E863DCB32275BF680020CB1C /* dungeon_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E863DCB22275BF680020CB1C /* dungeon_01.jpg */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -35,7 +35,7 @@
 		E812E0D5226EA25600C7E180 /* AGLKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGLKView.swift; sourceTree = "<group>"; };
 		E812E0D7226EA28600C7E180 /* shaderf.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shaderf.glsl; sourceTree = "<group>"; };
 		E812E0D8226EA28600C7E180 /* shaderv.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = shaderv.glsl; sourceTree = "<group>"; };
-		E812E0DB226EA3C100C7E180 /* dungeon_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dungeon_01.jpg; sourceTree = "<group>"; };
+		E863DCB22275BF680020CB1C /* dungeon_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dungeon_01.jpg; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +68,7 @@
 		E812E0BB226EA20C00C7E180 /* Tutorial-03-立方体 */ = {
 			isa = PBXGroup;
 			children = (
-				E812E0DB226EA3C100C7E180 /* dungeon_01.jpg */,
+				E863DCB22275BF680020CB1C /* dungeon_01.jpg */,
 				E812E0CE226EA22600C7E180 /* Utils */,
 				E812E0BC226EA20C00C7E180 /* AppDelegate.swift */,
 				E812E0BE226EA20C00C7E180 /* ViewController.swift */,
@@ -152,7 +152,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				E812E0C7226EA20E00C7E180 /* LaunchScreen.storyboard in Resources */,
-				E812E0DC226EA3C100C7E180 /* dungeon_01.jpg in Resources */,
+				E863DCB32275BF680020CB1C /* dungeon_01.jpg in Resources */,
 				E812E0D9226EA28600C7E180 /* shaderf.glsl in Resources */,
 				E812E0C4226EA20E00C7E180 /* Assets.xcassets in Resources */,
 				E812E0C2226EA20C00C7E180 /* Main.storyboard in Resources */,
