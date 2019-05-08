@@ -146,6 +146,7 @@ extension AGLKView {
         
         glTexImage2D(GLenum(GL_TEXTURE_2D), 0, GL_RGBA, GLsizei(fw), GLsizei(fh), 0, GLenum(GL_RGBA), GLenum(GL_UNSIGNED_BYTE), spriteData);
         
+        
         glBindTexture(GLenum(GL_TEXTURE_2D), 0);
         
         free(spriteData)
