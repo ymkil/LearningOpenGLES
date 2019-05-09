@@ -1,2 +1,12 @@
-# LearningOpenGLES
-iOS-Swift_OpenGLES 系列
+# 说明
+这是一个iOS OpenGLES3.0 从零开始的Demo程序，仅做个人学习OpenGLES的记录，并提供给后来初学者参考。若有相关问题，欢迎大家去博客留言交流。[Demo讲解博客](https://www.jianshu.com/nb/33614663)。
+
+# 更新说明
+
+## 当前内容
+1. 三角形
+2. 纹理
+3. 立方体
+4. 多实例绘制
+5. 多重纹理和混合
+6. 天空盒 

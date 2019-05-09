@@ -6,7 +6,7 @@
 //  Copyright © 2019 黎宁康. All rights reserved.
 //
 
-import Foundation
+import UIKit
 import OpenGLES
 
 struct GLESUtils {
@@ -115,5 +115,54 @@ struct GLESUtils {
         glDeleteShader(fragmentShader)
         
         return programHandel
+    }
+    
+    static func createVBO(_ target:GLenum, _ usage: Int, _ datSize: Int, data:UnsafeRawPointer!) ->GLuint {
+        var vbo:GLuint = 0
+        glGenBuffers(1, &vbo)
+        glBindBuffer(target, vbo)
+        glBufferData(target, datSize, data, GLenum(usage))
+        return vbo
+    }
+    
+    
+    static func createTexture2D(fileName: String) -> GLuint
+    {
+        var texture: GLuint = 0
+        
+        // 1获取图片的CGImageRef
+        guard let spriteImage = UIImage(named: fileName)?.cgImage else {
+            print("Failed to load image \(fileName)")
+            return texture
+        }
+        // 读取图片大小
+        let width = spriteImage.width
+        let height = spriteImage.height
+        
+        let spriteData = calloc(width * height * 4, MemoryLayout<GLubyte>.size)
+        
+        let spriteContext = CGContext(data: spriteData, width: width, height: height, bitsPerComponent: 8, bytesPerRow: width*4, space: spriteImage.colorSpace!, bitmapInfo: CGImageAlphaInfo.premultipliedLast.rawValue)
+        
+        // 3在CGContextRef上绘图
+        spriteContext?.draw(spriteImage, in: CGRect(x: 0, y: 0, width: width, height: height))
+        
+        // 4绑定纹理到默认的纹理ID（这里只有一张图片，故而相当于默认于片元着色器里面的colorMap，如果有多张图不可以这么做）
+        glGenTextures(1, &texture)
+        glBindTexture(GLenum(GL_TEXTURE_2D), texture);
+        
+        glTexParameteri( GLenum(GL_TEXTURE_2D), GLenum(GL_TEXTURE_MIN_FILTER), GL_LINEAR );
+        glTexParameteri( GLenum(GL_TEXTURE_2D), GLenum(GL_TEXTURE_MAG_FILTER), GL_LINEAR );
+        glTexParameteri( GLenum(GL_TEXTURE_2D), GLenum(GL_TEXTURE_WRAP_S), GL_CLAMP_TO_EDGE);
+        glTexParameteri( GLenum(GL_TEXTURE_2D), GLenum(GL_TEXTURE_WRAP_T), GL_CLAMP_TO_EDGE);
+        
+        let fw = width
+        let fh = height;
+        
+        glTexImage2D(GLenum(GL_TEXTURE_2D), 0, GL_RGBA, GLsizei(fw), GLsizei(fh), 0, GLenum(GL_RGBA), GLenum(GL_UNSIGNED_BYTE), spriteData);
+        
+        glBindTexture(GLenum(GL_TEXTURE_2D), 0);
+        
+        free(spriteData)
+        return texture
     }
 }

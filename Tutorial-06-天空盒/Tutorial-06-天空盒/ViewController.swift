@@ -9,12 +9,13 @@
 import UIKit
 
 class ViewController: UIViewController {
-
+    var myView:UIView?
     override func viewDidLoad() {
         super.viewDidLoad()
-        // Do any additional setup after loading the view.
+        myView = AGLKView()
+        myView?.frame = self.view.bounds
+        self.view.addSubview(myView!)
     }
-
-
+    
 }
 

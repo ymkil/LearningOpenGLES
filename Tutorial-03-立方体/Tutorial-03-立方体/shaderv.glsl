@@ -1,4 +1,4 @@
-attribute vec4 position;
+attribute vec3 position;
 attribute vec2 textCoordinate;
 uniform mat4 projectionMatrix;
 uniform mat4 viewMatrix;
@@ -10,5 +10,5 @@ void main()
 {
     varyTextCoord = textCoordinate;
     
-    gl_Position = projectionMatrix * viewMatrix * modelViewMatrix * position;
+    gl_Position = projectionMatrix * viewMatrix * modelViewMatrix * vec4(position, 1.0);
 }

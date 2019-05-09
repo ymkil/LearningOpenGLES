@@ -15,6 +15,17 @@
 		E8203C8522803D4200E57664 /* Vector.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8203C8222803D4100E57664 /* Vector.swift */; };
 		E8203C8622803D4200E57664 /* Matrix.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8203C8322803D4100E57664 /* Matrix.swift */; };
 		E8203C8722803D4200E57664 /* GLESUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8203C8422803D4100E57664 /* GLESUtils.swift */; };
+		E8573CAD2283C8A900AF4B1B /* urbansp_ft.tga in Resources */ = {isa = PBXBuildFile; fileRef = E8573CA82283C8A800AF4B1B /* urbansp_ft.tga */; };
+		E8573CAE2283C8A900AF4B1B /* urbansp_bk.tga in Resources */ = {isa = PBXBuildFile; fileRef = E8573CA92283C8A800AF4B1B /* urbansp_bk.tga */; };
+		E8573CAF2283C8A900AF4B1B /* urbansp_rt.tga in Resources */ = {isa = PBXBuildFile; fileRef = E8573CAA2283C8A800AF4B1B /* urbansp_rt.tga */; };
+		E8573CB02283C8A900AF4B1B /* urbansp_lf.tga in Resources */ = {isa = PBXBuildFile; fileRef = E8573CAB2283C8A800AF4B1B /* urbansp_lf.tga */; };
+		E8573CB12283C8A900AF4B1B /* urbansp_dn.tga in Resources */ = {isa = PBXBuildFile; fileRef = E8573CAC2283C8A900AF4B1B /* urbansp_dn.tga */; };
+		E8573CB32283C9A600AF4B1B /* dungeon_01.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8573CB22283C9A500AF4B1B /* dungeon_01.jpg */; };
+		E8F4118D2283CB840061F1A1 /* cubev.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E8F4118C2283CB840061F1A1 /* cubev.glsl */; };
+		E8F4118F2283CB970061F1A1 /* cubef.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E8F4118E2283CB970061F1A1 /* cubef.glsl */; };
+		E8F411912283CBFC0061F1A1 /* skyboxv.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E8F411902283CBFC0061F1A1 /* skyboxv.glsl */; };
+		E8F411932283CC0D0061F1A1 /* skyboxf.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E8F411922283CC0D0061F1A1 /* skyboxf.glsl */; };
+		E8F411952283D17D0061F1A1 /* AGLKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8F411942283D17D0061F1A1 /* AGLKView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -28,6 +39,17 @@
 		E8203C8222803D4100E57664 /* Vector.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Vector.swift; sourceTree = "<group>"; };
 		E8203C8322803D4100E57664 /* Matrix.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Matrix.swift; sourceTree = "<group>"; };
 		E8203C8422803D4100E57664 /* GLESUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLESUtils.swift; sourceTree = "<group>"; };
+		E8573CA82283C8A800AF4B1B /* urbansp_ft.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = urbansp_ft.tga; sourceTree = "<group>"; };
+		E8573CA92283C8A800AF4B1B /* urbansp_bk.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = urbansp_bk.tga; sourceTree = "<group>"; };
+		E8573CAA2283C8A800AF4B1B /* urbansp_rt.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = urbansp_rt.tga; sourceTree = "<group>"; };
+		E8573CAB2283C8A800AF4B1B /* urbansp_lf.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = urbansp_lf.tga; sourceTree = "<group>"; };
+		E8573CAC2283C8A900AF4B1B /* urbansp_dn.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = urbansp_dn.tga; sourceTree = "<group>"; };
+		E8573CB22283C9A500AF4B1B /* dungeon_01.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = dungeon_01.jpg; sourceTree = "<group>"; };
+		E8F4118C2283CB840061F1A1 /* cubev.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = cubev.glsl; sourceTree = "<group>"; };
+		E8F4118E2283CB970061F1A1 /* cubef.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = cubef.glsl; sourceTree = "<group>"; };
+		E8F411902283CBFC0061F1A1 /* skyboxv.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = skyboxv.glsl; sourceTree = "<group>"; };
+		E8F411922283CC0D0061F1A1 /* skyboxf.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = skyboxf.glsl; sourceTree = "<group>"; };
+		E8F411942283D17D0061F1A1 /* AGLKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGLKView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -60,23 +82,18 @@
 		E8203C6D22803CDE00E57664 /* Tutorial-06-天空盒 */ = {
 			isa = PBXGroup;
 			children = (
+				E8F4118B2283CB4F0061F1A1 /* shader */,
+				E8F4118A2283CAB50061F1A1 /* images */,
 				E8203C8122803D4100E57664 /* Utils */,
-				E8203C8022803CE600E57664 /* modeling */,
 				E8203C6E22803CDE00E57664 /* AppDelegate.swift */,
 				E8203C7022803CDE00E57664 /* ViewController.swift */,
+				E8F411942283D17D0061F1A1 /* AGLKView.swift */,
 				E8203C7222803CDE00E57664 /* Main.storyboard */,
 				E8203C7522803CDF00E57664 /* Assets.xcassets */,
 				E8203C7722803CDF00E57664 /* LaunchScreen.storyboard */,
 				E8203C7A22803CDF00E57664 /* Info.plist */,
 			);
 			path = "Tutorial-06-天空盒";
-			sourceTree = "<group>";
-		};
-		E8203C8022803CE600E57664 /* modeling */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = modeling;
 			sourceTree = "<group>";
 		};
 		E8203C8122803D4100E57664 /* Utils */ = {
@@ -87,6 +104,30 @@
 				E8203C8422803D4100E57664 /* GLESUtils.swift */,
 			);
 			path = Utils;
+			sourceTree = "<group>";
+		};
+		E8F4118A2283CAB50061F1A1 /* images */ = {
+			isa = PBXGroup;
+			children = (
+				E8573CA92283C8A800AF4B1B /* urbansp_bk.tga */,
+				E8573CAC2283C8A900AF4B1B /* urbansp_dn.tga */,
+				E8573CA82283C8A800AF4B1B /* urbansp_ft.tga */,
+				E8573CAB2283C8A800AF4B1B /* urbansp_lf.tga */,
+				E8573CAA2283C8A800AF4B1B /* urbansp_rt.tga */,
+				E8573CB22283C9A500AF4B1B /* dungeon_01.jpg */,
+			);
+			path = images;
+			sourceTree = "<group>";
+		};
+		E8F4118B2283CB4F0061F1A1 /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				E8F4118C2283CB840061F1A1 /* cubev.glsl */,
+				E8F4118E2283CB970061F1A1 /* cubef.glsl */,
+				E8F411902283CBFC0061F1A1 /* skyboxv.glsl */,
+				E8F411922283CC0D0061F1A1 /* skyboxf.glsl */,
+			);
+			path = shader;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -147,9 +188,19 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E8573CAD2283C8A900AF4B1B /* urbansp_ft.tga in Resources */,
+				E8573CB32283C9A600AF4B1B /* dungeon_01.jpg in Resources */,
 				E8203C7922803CDF00E57664 /* LaunchScreen.storyboard in Resources */,
+				E8573CB02283C8A900AF4B1B /* urbansp_lf.tga in Resources */,
+				E8573CAF2283C8A900AF4B1B /* urbansp_rt.tga in Resources */,
+				E8573CB12283C8A900AF4B1B /* urbansp_dn.tga in Resources */,
+				E8F411912283CBFC0061F1A1 /* skyboxv.glsl in Resources */,
+				E8F4118F2283CB970061F1A1 /* cubef.glsl in Resources */,
+				E8F411932283CC0D0061F1A1 /* skyboxf.glsl in Resources */,
 				E8203C7622803CDF00E57664 /* Assets.xcassets in Resources */,
 				E8203C7422803CDE00E57664 /* Main.storyboard in Resources */,
+				E8573CAE2283C8A900AF4B1B /* urbansp_bk.tga in Resources */,
+				E8F4118D2283CB840061F1A1 /* cubev.glsl in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -165,6 +216,7 @@
 				E8203C7122803CDE00E57664 /* ViewController.swift in Sources */,
 				E8203C8522803D4200E57664 /* Vector.swift in Sources */,
 				E8203C6F22803CDE00E57664 /* AppDelegate.swift in Sources */,
+				E8F411952283D17D0061F1A1 /* AGLKView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -312,6 +364,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Tutorial-06-天空盒/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -329,6 +382,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = "Tutorial-06-天空盒/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
