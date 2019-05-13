@@ -1,0 +1,431 @@
+// !$*UTF8*$!
+{
+	archiveVersion = 1;
+	classes = {
+	};
+	objectVersion = 50;
+	objects = {
+
+/* Begin PBXBuildFile section */
+		E806E6C52286C2CB00447271 /* skyboxf.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E806E6C32286C2CB00447271 /* skyboxf.glsl */; };
+		E806E6C62286C2CB00447271 /* skyboxv.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E806E6C42286C2CB00447271 /* skyboxv.glsl */; };
+		E806E82B22895DB300447271 /* GLKMatrix+Array.swift in Sources */ = {isa = PBXBuildFile; fileRef = E806E82A22895DB300447271 /* GLKMatrix+Array.swift */; };
+		E806E8322289694700447271 /* fadeaway_up.tga in Resources */ = {isa = PBXBuildFile; fileRef = E806E82C2289694700447271 /* fadeaway_up.tga */; };
+		E806E8332289694700447271 /* fadeaway_dn.tga in Resources */ = {isa = PBXBuildFile; fileRef = E806E82D2289694700447271 /* fadeaway_dn.tga */; };
+		E806E8342289694700447271 /* fadeaway_ft.tga in Resources */ = {isa = PBXBuildFile; fileRef = E806E82E2289694700447271 /* fadeaway_ft.tga */; };
+		E806E8352289694700447271 /* fadeaway_lf.tga in Resources */ = {isa = PBXBuildFile; fileRef = E806E82F2289694700447271 /* fadeaway_lf.tga */; };
+		E806E8362289694700447271 /* fadeaway_bk.tga in Resources */ = {isa = PBXBuildFile; fileRef = E806E8302289694700447271 /* fadeaway_bk.tga */; };
+		E806E8372289694700447271 /* fadeaway_rt.tga in Resources */ = {isa = PBXBuildFile; fileRef = E806E8312289694700447271 /* fadeaway_rt.tga */; };
+		E806E83B22896B0D00447271 /* image.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E806E83A22896B0D00447271 /* image.jpg */; };
+		E8B7D30A2286A1740013383D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B7D3092286A1740013383D /* AppDelegate.swift */; };
+		E8B7D30C2286A1740013383D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B7D30B2286A1740013383D /* ViewController.swift */; };
+		E8B7D30F2286A1740013383D /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8B7D30D2286A1740013383D /* Main.storyboard */; };
+		E8B7D3112286A1760013383D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E8B7D3102286A1760013383D /* Assets.xcassets */; };
+		E8B7D3142286A1760013383D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E8B7D3122286A1760013383D /* LaunchScreen.storyboard */; };
+		E8B7D32E2286A2B30013383D /* GLESUtils.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B7D32B2286A2B30013383D /* GLESUtils.swift */; };
+		E8B7D3352286A4B20013383D /* SkyboxEffect.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B7D3342286A4B20013383D /* SkyboxEffect.swift */; };
+		E8B7D3372286BA6E0013383D /* AGLKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E8B7D3362286BA6E0013383D /* AGLKView.swift */; };
+		E8B7D33A2286BC230013383D /* cubef.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E8B7D3382286BC230013383D /* cubef.glsl */; };
+		E8B7D33B2286BC230013383D /* cubev.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E8B7D3392286BC230013383D /* cubev.glsl */; };
+		E8B7D33D2286BF860013383D /* container.jpg in Resources */ = {isa = PBXBuildFile; fileRef = E8B7D33C2286BF860013383D /* container.jpg */; };
+/* End PBXBuildFile section */
+
+/* Begin PBXFileReference section */
+		E806E6C32286C2CB00447271 /* skyboxf.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = skyboxf.glsl; sourceTree = "<group>"; };
+		E806E6C42286C2CB00447271 /* skyboxv.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = skyboxv.glsl; sourceTree = "<group>"; };
+		E806E82A22895DB300447271 /* GLKMatrix+Array.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "GLKMatrix+Array.swift"; sourceTree = "<group>"; };
+		E806E82C2289694700447271 /* fadeaway_up.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = fadeaway_up.tga; sourceTree = "<group>"; };
+		E806E82D2289694700447271 /* fadeaway_dn.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = fadeaway_dn.tga; sourceTree = "<group>"; };
+		E806E82E2289694700447271 /* fadeaway_ft.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = fadeaway_ft.tga; sourceTree = "<group>"; };
+		E806E82F2289694700447271 /* fadeaway_lf.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = fadeaway_lf.tga; sourceTree = "<group>"; };
+		E806E8302289694700447271 /* fadeaway_bk.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = fadeaway_bk.tga; sourceTree = "<group>"; };
+		E806E8312289694700447271 /* fadeaway_rt.tga */ = {isa = PBXFileReference; lastKnownFileType = file; path = fadeaway_rt.tga; sourceTree = "<group>"; };
+		E806E83A22896B0D00447271 /* image.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = image.jpg; sourceTree = "<group>"; };
+		E8B7D3062286A1740013383D /* Toturial-06-天空盒.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Toturial-06-天空盒.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8B7D3092286A1740013383D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
+		E8B7D30B2286A1740013383D /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
+		E8B7D30E2286A1740013383D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
+		E8B7D3102286A1760013383D /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		E8B7D3132286A1760013383D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
+		E8B7D3152286A1760013383D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		E8B7D32B2286A2B30013383D /* GLESUtils.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GLESUtils.swift; sourceTree = "<group>"; };
+		E8B7D3342286A4B20013383D /* SkyboxEffect.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SkyboxEffect.swift; sourceTree = "<group>"; };
+		E8B7D3362286BA6E0013383D /* AGLKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGLKView.swift; sourceTree = "<group>"; };
+		E8B7D3382286BC230013383D /* cubef.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cubef.glsl; sourceTree = "<group>"; };
+		E8B7D3392286BC230013383D /* cubev.glsl */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = cubev.glsl; sourceTree = "<group>"; };
+		E8B7D33C2286BF860013383D /* container.jpg */ = {isa = PBXFileReference; lastKnownFileType = image.jpeg; path = container.jpg; sourceTree = "<group>"; };
+/* End PBXFileReference section */
+
+/* Begin PBXFrameworksBuildPhase section */
+		E8B7D3032286A1740013383D /* Frameworks */ = {
+			isa = PBXFrameworksBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXFrameworksBuildPhase section */
+
+/* Begin PBXGroup section */
+		E8B7D2FD2286A1740013383D = {
+			isa = PBXGroup;
+			children = (
+				E8B7D3082286A1740013383D /* Toturial-06-天空盒 */,
+				E8B7D3072286A1740013383D /* Products */,
+			);
+			sourceTree = "<group>";
+		};
+		E8B7D3072286A1740013383D /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				E8B7D3062286A1740013383D /* Toturial-06-天空盒.app */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		E8B7D3082286A1740013383D /* Toturial-06-天空盒 */ = {
+			isa = PBXGroup;
+			children = (
+				E8B7D31B2286A27F0013383D /* image */,
+				E8B7D3282286A2B30013383D /* Utils */,
+				E8B7D32F2286A2E10013383D /* shader */,
+				E8B7D3092286A1740013383D /* AppDelegate.swift */,
+				E8B7D30B2286A1740013383D /* ViewController.swift */,
+				E8B7D3362286BA6E0013383D /* AGLKView.swift */,
+				E8B7D3342286A4B20013383D /* SkyboxEffect.swift */,
+				E8B7D30D2286A1740013383D /* Main.storyboard */,
+				E8B7D3102286A1760013383D /* Assets.xcassets */,
+				E8B7D3122286A1760013383D /* LaunchScreen.storyboard */,
+				E8B7D3152286A1760013383D /* Info.plist */,
+			);
+			path = "Toturial-06-天空盒";
+			sourceTree = "<group>";
+		};
+		E8B7D31B2286A27F0013383D /* image */ = {
+			isa = PBXGroup;
+			children = (
+				E806E83A22896B0D00447271 /* image.jpg */,
+				E806E8302289694700447271 /* fadeaway_bk.tga */,
+				E806E82D2289694700447271 /* fadeaway_dn.tga */,
+				E806E82E2289694700447271 /* fadeaway_ft.tga */,
+				E806E82F2289694700447271 /* fadeaway_lf.tga */,
+				E806E8312289694700447271 /* fadeaway_rt.tga */,
+				E806E82C2289694700447271 /* fadeaway_up.tga */,
+				E8B7D33C2286BF860013383D /* container.jpg */,
+			);
+			path = image;
+			sourceTree = "<group>";
+		};
+		E8B7D3282286A2B30013383D /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				E8B7D32B2286A2B30013383D /* GLESUtils.swift */,
+				E806E82A22895DB300447271 /* GLKMatrix+Array.swift */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
+		E8B7D32F2286A2E10013383D /* shader */ = {
+			isa = PBXGroup;
+			children = (
+				E8B7D3382286BC230013383D /* cubef.glsl */,
+				E8B7D3392286BC230013383D /* cubev.glsl */,
+				E806E6C32286C2CB00447271 /* skyboxf.glsl */,
+				E806E6C42286C2CB00447271 /* skyboxv.glsl */,
+			);
+			path = shader;
+			sourceTree = "<group>";
+		};
+/* End PBXGroup section */
+
+/* Begin PBXNativeTarget section */
+		E8B7D3052286A1740013383D /* Toturial-06-天空盒 */ = {
+			isa = PBXNativeTarget;
+			buildConfigurationList = E8B7D3182286A1760013383D /* Build configuration list for PBXNativeTarget "Toturial-06-天空盒" */;
+			buildPhases = (
+				E8B7D3022286A1740013383D /* Sources */,
+				E8B7D3032286A1740013383D /* Frameworks */,
+				E8B7D3042286A1740013383D /* Resources */,
+			);
+			buildRules = (
+			);
+			dependencies = (
+			);
+			name = "Toturial-06-天空盒";
+			productName = "Toturial-06-天空盒";
+			productReference = E8B7D3062286A1740013383D /* Toturial-06-天空盒.app */;
+			productType = "com.apple.product-type.application";
+		};
+/* End PBXNativeTarget section */
+
+/* Begin PBXProject section */
+		E8B7D2FE2286A1740013383D /* Project object */ = {
+			isa = PBXProject;
+			attributes = {
+				LastSwiftUpdateCheck = 1020;
+				LastUpgradeCheck = 1020;
+				ORGANIZATIONNAME = "黎宁康";
+				TargetAttributes = {
+					E8B7D3052286A1740013383D = {
+						CreatedOnToolsVersion = 10.2.1;
+					};
+				};
+			};
+			buildConfigurationList = E8B7D3012286A1740013383D /* Build configuration list for PBXProject "Toturial-06-天空盒" */;
+			compatibilityVersion = "Xcode 9.3";
+			developmentRegion = en;
+			hasScannedForEncodings = 0;
+			knownRegions = (
+				en,
+				Base,
+			);
+			mainGroup = E8B7D2FD2286A1740013383D;
+			productRefGroup = E8B7D3072286A1740013383D /* Products */;
+			projectDirPath = "";
+			projectRoot = "";
+			targets = (
+				E8B7D3052286A1740013383D /* Toturial-06-天空盒 */,
+			);
+		};
+/* End PBXProject section */
+
+/* Begin PBXResourcesBuildPhase section */
+		E8B7D3042286A1740013383D /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8B7D3142286A1760013383D /* LaunchScreen.storyboard in Resources */,
+				E8B7D33B2286BC230013383D /* cubev.glsl in Resources */,
+				E8B7D33D2286BF860013383D /* container.jpg in Resources */,
+				E806E6C52286C2CB00447271 /* skyboxf.glsl in Resources */,
+				E806E8332289694700447271 /* fadeaway_dn.tga in Resources */,
+				E8B7D3112286A1760013383D /* Assets.xcassets in Resources */,
+				E806E8362289694700447271 /* fadeaway_bk.tga in Resources */,
+				E8B7D33A2286BC230013383D /* cubef.glsl in Resources */,
+				E806E8372289694700447271 /* fadeaway_rt.tga in Resources */,
+				E806E6C62286C2CB00447271 /* skyboxv.glsl in Resources */,
+				E806E8352289694700447271 /* fadeaway_lf.tga in Resources */,
+				E8B7D30F2286A1740013383D /* Main.storyboard in Resources */,
+				E806E8342289694700447271 /* fadeaway_ft.tga in Resources */,
+				E806E8322289694700447271 /* fadeaway_up.tga in Resources */,
+				E806E83B22896B0D00447271 /* image.jpg in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
+/* Begin PBXSourcesBuildPhase section */
+		E8B7D3022286A1740013383D /* Sources */ = {
+			isa = PBXSourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				E8B7D32E2286A2B30013383D /* GLESUtils.swift in Sources */,
+				E8B7D30C2286A1740013383D /* ViewController.swift in Sources */,
+				E8B7D3372286BA6E0013383D /* AGLKView.swift in Sources */,
+				E806E82B22895DB300447271 /* GLKMatrix+Array.swift in Sources */,
+				E8B7D3352286A4B20013383D /* SkyboxEffect.swift in Sources */,
+				E8B7D30A2286A1740013383D /* AppDelegate.swift in Sources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXSourcesBuildPhase section */
+
+/* Begin PBXVariantGroup section */
+		E8B7D30D2286A1740013383D /* Main.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E8B7D30E2286A1740013383D /* Base */,
+			);
+			name = Main.storyboard;
+			sourceTree = "<group>";
+		};
+		E8B7D3122286A1760013383D /* LaunchScreen.storyboard */ = {
+			isa = PBXVariantGroup;
+			children = (
+				E8B7D3132286A1760013383D /* Base */,
+			);
+			name = LaunchScreen.storyboard;
+			sourceTree = "<group>";
+		};
+/* End PBXVariantGroup section */
+
+/* Begin XCBuildConfiguration section */
+		E8B7D3162286A1760013383D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = dwarf;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				ENABLE_TESTABILITY = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_DYNAMIC_NO_PIC = NO;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_OPTIMIZATION_LEVEL = 0;
+				GCC_PREPROCESSOR_DEFINITIONS = (
+					"DEBUG=1",
+					"$(inherited)",
+				);
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
+				MTL_FAST_MATH = YES;
+				ONLY_ACTIVE_ARCH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
+			};
+			name = Debug;
+		};
+		E8B7D3172286A1760013383D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_NONNULL = YES;
+				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
+				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
+				CLANG_CXX_LIBRARY = "libc++";
+				CLANG_ENABLE_MODULES = YES;
+				CLANG_ENABLE_OBJC_ARC = YES;
+				CLANG_ENABLE_OBJC_WEAK = YES;
+				CLANG_WARN_BLOCK_CAPTURE_AUTORELEASING = YES;
+				CLANG_WARN_BOOL_CONVERSION = YES;
+				CLANG_WARN_COMMA = YES;
+				CLANG_WARN_CONSTANT_CONVERSION = YES;
+				CLANG_WARN_DEPRECATED_OBJC_IMPLEMENTATIONS = YES;
+				CLANG_WARN_DIRECT_OBJC_ISA_USAGE = YES_ERROR;
+				CLANG_WARN_DOCUMENTATION_COMMENTS = YES;
+				CLANG_WARN_EMPTY_BODY = YES;
+				CLANG_WARN_ENUM_CONVERSION = YES;
+				CLANG_WARN_INFINITE_RECURSION = YES;
+				CLANG_WARN_INT_CONVERSION = YES;
+				CLANG_WARN_NON_LITERAL_NULL_CONVERSION = YES;
+				CLANG_WARN_OBJC_IMPLICIT_RETAIN_SELF = YES;
+				CLANG_WARN_OBJC_LITERAL_CONVERSION = YES;
+				CLANG_WARN_OBJC_ROOT_CLASS = YES_ERROR;
+				CLANG_WARN_RANGE_LOOP_ANALYSIS = YES;
+				CLANG_WARN_STRICT_PROTOTYPES = YES;
+				CLANG_WARN_SUSPICIOUS_MOVE = YES;
+				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
+				CLANG_WARN_UNREACHABLE_CODE = YES;
+				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
+				CODE_SIGN_IDENTITY = "iPhone Developer";
+				COPY_PHASE_STRIP = NO;
+				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
+				ENABLE_NS_ASSERTIONS = NO;
+				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				GCC_C_LANGUAGE_STANDARD = gnu11;
+				GCC_NO_COMMON_BLOCKS = YES;
+				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
+				GCC_WARN_ABOUT_RETURN_TYPE = YES_ERROR;
+				GCC_WARN_UNDECLARED_SELECTOR = YES;
+				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
+				GCC_WARN_UNUSED_FUNCTION = YES;
+				GCC_WARN_UNUSED_VARIABLE = YES;
+				IPHONEOS_DEPLOYMENT_TARGET = 12.2;
+				MTL_ENABLE_DEBUG_INFO = NO;
+				MTL_FAST_MATH = YES;
+				SDKROOT = iphoneos;
+				SWIFT_COMPILATION_MODE = wholemodule;
+				SWIFT_OPTIMIZATION_LEVEL = "-O";
+				VALIDATE_PRODUCT = YES;
+			};
+			name = Release;
+		};
+		E8B7D3192286A1760013383D /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 89T2JY57JE;
+				INFOPLIST_FILE = "Toturial-06-天空盒/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "mkiltech.com.Toturial-06----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Debug;
+		};
+		E8B7D31A2286A1760013383D /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = 89T2JY57JE;
+				INFOPLIST_FILE = "Toturial-06-天空盒/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 10.0;
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "mkiltech.com.Toturial-06----";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_VERSION = 5.0;
+				TARGETED_DEVICE_FAMILY = "1,2";
+			};
+			name = Release;
+		};
+/* End XCBuildConfiguration section */
+
+/* Begin XCConfigurationList section */
+		E8B7D3012286A1740013383D /* Build configuration list for PBXProject "Toturial-06-天空盒" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8B7D3162286A1760013383D /* Debug */,
+				E8B7D3172286A1760013383D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+		E8B7D3182286A1760013383D /* Build configuration list for PBXNativeTarget "Toturial-06-天空盒" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				E8B7D3192286A1760013383D /* Debug */,
+				E8B7D31A2286A1760013383D /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
+/* End XCConfigurationList section */
+	};
+	rootObject = E8B7D2FE2286A1740013383D /* Project object */;
+}

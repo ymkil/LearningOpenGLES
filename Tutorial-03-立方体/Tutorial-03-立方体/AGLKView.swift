@@ -204,7 +204,7 @@ extension AGLKView {
         var modelViewMatrixCopy = modelViewMatrix
         Matrix.matrixMultiply(resultM4: &modelViewMatrix, aM4: &rotationMatrix, bM4: &modelViewMatrixCopy)
         
-        glUniformMatrix4fv(GLint(modelViewMatrixSlot), 1, GLboolean(GL_FALSE), modelViewMatrix.array);
+        glUniformMatrix4fv(GLint(modelViewMatrixSlot), 1, GLboolean(GL_FALSE), modelViewMatrix.array)
         
         glClear(GLbitfield(GL_COLOR_BUFFER_BIT | GL_DEPTH_BUFFER_BIT))
         
