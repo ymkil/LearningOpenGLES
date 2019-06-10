@@ -12,6 +12,7 @@ class ViewController: UIViewController {
     var myView:UIView?
     override func viewDidLoad() {
         super.viewDidLoad()
+        
         myView = AGLKView()
         myView?.frame = self.view.bounds
         self.view.addSubview(myView!)
