@@ -48,6 +48,18 @@ class AGLKView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        glDeleteBuffers(1, &vbo)
+        glDeleteBuffers(1, &vbo1)
+        glDeleteTextures(1, &textId)
+        glDeleteTextures(1, &fboTextId)
+        
+        if let program = program, let program1 = program1 {
+            glDeleteProgram(program)
+            glDeleteProgram(program1)
+        }
+    }
+    
     override func layoutSubviews() {
         EAGLContext.setCurrent(presentContex)
         destoryRenderAndFrameBuffer()
@@ -65,7 +77,7 @@ extension AGLKView {
         guard let program = program, let program1 = program1 else {
             return
         }
-        
+        // 渲染到纹理贴图
         glUseProgram(program1)
         glBindFramebuffer(GLenum(GL_FRAMEBUFFER), frameBuffer1)
 
@@ -73,27 +85,28 @@ extension AGLKView {
         glClear(GLbitfield(GL_COLOR_BUFFER_BIT))
 
         glViewport(0, 0, GLsizei(frameBuffer1Size.width), GLsizei(frameBuffer1Size.height))
-        
+
         glBindVertexArray(vbo1)
         glActiveTexture(GLenum(GL_TEXTURE0))
         glBindTexture(GLenum(GL_TEXTURE_2D), textId)
         glUniform1i(glGetUniformLocation(program1,"u_Texture"), 0)
         glDrawArrays(GLenum(GL_TRIANGLES), 0, 6)
-        
+
+        // 渲染到默认帧缓存
         glUseProgram(program)
         glBindFramebuffer(GLenum(GL_FRAMEBUFFER), frameBuffer)
-        
+
         glClearColor(0.0, 1.0, 1.0, 1.0)
         glClear(GLbitfield(GL_COLOR_BUFFER_BIT))
-        
+
         glViewport(0, 0, GLsizei(frame.size.width), GLsizei(frame.size.height))
-        
+
         glBindVertexArray(vbo)
         glActiveTexture(GLenum(GL_TEXTURE1))
         glBindTexture(GLenum(GL_TEXTURE_2D), fboTextId)
         glUniform1i(glGetUniformLocation(program1,"u_Texture"), 1)
         glDrawArrays(GLenum(GL_TRIANGLES), 0, 6)
-        
+
         presentContex?.presentRenderbuffer(Int(GL_RENDERBUFFER))
 
     }
@@ -167,23 +180,26 @@ extension AGLKView {
         glTexParameteri(GLenum(GL_TEXTURE_2D), GLenum(GL_TEXTURE_WRAP_T), GL_CLAMP_TO_EDGE)
         glTexParameteri(GLenum(GL_TEXTURE_2D), GLenum(GL_TEXTURE_MAG_FILTER), GL_LINEAR)
         glTexParameteri(GLenum(GL_TEXTURE_2D), GLenum(GL_TEXTURE_MIN_FILTER), GL_LINEAR)
+        // 生成纹理，数据给nil
         glTexImage2D(GLenum(GL_TEXTURE_2D), 0, GL_RGBA, GLsizei(frameBuffer1Size.width), GLsizei(frameBuffer1Size.height), 0, GLenum(GL_RGBA), GLenum(GL_UNSIGNED_BYTE), nil)
         glBindTexture(GLenum(GL_TEXTURE_2D), 0)
-        
+
+        // 生成帧缓存
         glGenFramebuffers(1, &frameBuffer1)
         glBindFramebuffer(GLenum(GL_FRAMEBUFFER), frameBuffer1)
+        // 纹理关联到帧缓存颜色附件(渲染成纹理贴图)
         glFramebufferTexture2D(GLenum(GL_FRAMEBUFFER), GLenum(GL_COLOR_ATTACHMENT0), GLenum(GL_TEXTURE_2D), fboTextId, 0)
-        
+
         let status = glCheckFramebufferStatus(GLenum(GL_FRAMEBUFFER))
-        
+
         if status == GL_FRAMEBUFFER_COMPLETE {
-            print("fbo complete width \(frameBuffer1Size.width) height \(frameBuffer1Size.height)")
+            print("fbo complete succeed width \(frameBuffer1Size.width) height \(frameBuffer1Size.height)")
         } else if status == GL_FRAMEBUFFER_UNSUPPORTED {
             print("fbo unsupported")
         } else {
             print("Framebuffer Error")
         }
-        
+        // 解除绑定
         glBindFramebuffer(GLenum(GL_FRAMEBUFFER), 0)
     }
     
