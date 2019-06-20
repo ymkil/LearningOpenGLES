@@ -29,6 +29,9 @@ class AGLKView: UIView {
     
     var myTimer:Timer?
     
+    // ModelView Transformation
+    var position : GLKVector3 = GLKVector3(v: (0.0, 0.0, 0.0))
+    
     
     // 只有CAEAGLLayer 类型的 layer 才支持 OpenGl 描绘
     override class var layerClass : AnyClass {
@@ -94,6 +97,9 @@ extension AGLKView {
         glViewport(0, 0, GLsizei(frame.size.width), GLsizei(frame.size.height))
         
         glEnable(GLenum(GL_DEPTH_TEST))   // 开启深度缓存
+        glEnable(GLenum(GL_CULL_FACE))
+        glEnable(GLenum(GL_BLEND))
+        glBlendFunc(GLenum(GL_SRC_ALPHA), GLenum(GL_ONE_MINUS_SRC_ALPHA))
         
         let width = frame.size.width
         let height = frame.size.height
@@ -104,14 +110,31 @@ extension AGLKView {
             1,
             150)
         
-        var modelMatrix =  GLKMatrix4Rotate(GLKMatrix4MakeTranslation(0, 0, -15.5), GLKMathDegreesToRadians(20), 1, 0, 0)
-        modelMatrix = GLKMatrix4RotateY(modelMatrix, angle)
-        
         glUseProgram(program)
-        let targetModelProjection = GLKMatrix4Multiply(projectionMatrix, modelMatrix)
-        glUniformMatrix4fv(glGetUniformLocation(program, "u_modelMatrix"), 1, GLboolean(GL_FALSE), targetModelProjection.array)
+        glUniformMatrix4fv(glGetUniformLocation(program, "u_projectionMatrix"), 1, GLboolean(GL_FALSE), projectionMatrix.array)
         
+        let viewMatrix: GLKMatrix4 =  GLKMatrix4Rotate(GLKMatrix4MakeTranslation(0, 0, -5), GLKMathDegreesToRadians(20), 1, 0, 0)
         
+        var modelMatrix = GLKMatrix4Identity
+        modelMatrix = GLKMatrix4Translate(modelMatrix, self.position.x, self.position.y, self.position.z)
+        modelMatrix = GLKMatrix4RotateY(modelMatrix, angle)
+        modelMatrix = GLKMatrix4Scale(modelMatrix, 0.3, 0.3, 0.3)
+    
+        let modelViewMatrix = GLKMatrix4Multiply(viewMatrix, modelMatrix)
+        
+        glUniformMatrix4fv(glGetUniformLocation(program, "u_modelViewMatrix"), 1, GLboolean(GL_FALSE), modelViewMatrix.array)
+        
+        // 设置光照
+        glUniform3f(glGetUniformLocation(program, "u_Light.Color"), 1, 1, 1)
+        glUniform1f(glGetUniformLocation(program, "u_Light.AmbientIntensity"), 0.1)
+        
+        glUniform3f(glGetUniformLocation(program, "u_Light.Direction"), 0, 1, -1)
+        glUniform1f(glGetUniformLocation(program, "u_Light.DiffuseIntensity"), 0.7)
+        
+        glUniform1f(glGetUniformLocation(program, "u_Light.Shininess"), 1)
+        glUniform1f(glGetUniformLocation(program, "u_Light.SpecularIntensity"), 2)
+        
+    
         glActiveTexture(GLenum(GL_TEXTURE0))
         glBindTexture(GLenum(GL_TEXTURE_2D), textId)
         glUniform1i(glGetUniformLocation(program,"u_Texture"), 0)
@@ -215,10 +238,16 @@ extension AGLKView {
         
         glEnableVertexAttribArray(GLuint(glGetAttribLocation(program, "a_TexCoord")))
         glVertexAttribPointer(GLuint(glGetAttribLocation(program, "a_TexCoord")), 2, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(MemoryLayout<GLfloat>.size * 8), UnsafeRawPointer(bitPattern:3 * MemoryLayout<GLfloat>.size))
+        
+        glEnableVertexAttribArray(GLuint(glGetAttribLocation(program, "a_Normal")))
+        glVertexAttribPointer(GLuint(glGetAttribLocation(program, "a_Normal")), 3, GLenum(GL_FLOAT), GLboolean(GL_FALSE), GLsizei(MemoryLayout<GLfloat>.size * 8), UnsafeRawPointer(bitPattern:5 * MemoryLayout<GLfloat>.size))
     }
     
     fileprivate func setupTexure() {
-        textId = GLESUtils.createTexture2D(fileName: "key.bmp")
+        
+        if let material = loadObj?.data.material {
+            textId = GLESUtils.createTexture2D(filePath: material.diffuseTextureMapFilePath ?? "")
+        }
     }
     
 }

@@ -167,6 +167,46 @@ final class ObjScanner: Scanner {
         
         return result
     }
+}
+
+
+final class MaterialScanner: Scanner {
     
-    
+    func readColor() throws -> Color {
+        var r = Double.infinity
+        var g = Double.infinity
+        var b = Double.infinity
+        
+        guard scanner.scanDouble(&r) else {
+            throw ScannerErrors.unreadableData(error: "Bad color definition missing r component")
+        }
+        
+        guard scanner.scanDouble(&g) else {
+            throw ScannerErrors.unreadableData(error: "Bad color definition missing g component")
+        }
+        
+        guard scanner.scanDouble(&b) else {
+            throw ScannerErrors.unreadableData(error: "Bad color definition missing b component")
+        }
+        
+        if r < 0.0 || r > 1.0 {
+            throw ScannerErrors.invalidData(
+                error: "Bad (r) value \(r). Should be in range 0.0 to 1.0"
+            )
+        }
+        
+        if g < 0.0 || g > 1.0 {
+            throw ScannerErrors.invalidData(
+                error: "Bad g value \(g). Should be in range 0.0 to 1.0"
+            )
+        }
+        
+        if b < 0.0 || b > 1.0 {
+            throw ScannerErrors.invalidData(
+                error: "Bad b value \(b). Should be in range 0.0 to 1.0"
+            )
+        }
+        
+        return Color(r: r, g: g, b: b)
+    }
 }

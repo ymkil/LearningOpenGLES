@@ -28,6 +28,9 @@ public final class ObjLoader {
         
         // 顶点 纹理 法线  合并数据
         var mergeVertices: [GLfloat] = []
+        
+        // 纹理数据
+        var material: Material?
     }
     
     fileprivate static let commentMarker = "#"
@@ -35,9 +38,12 @@ public final class ObjLoader {
     fileprivate static let normalMarker = "vn"
     fileprivate static let textureCoordMarker = "vt"
     fileprivate static let faceMarker = "f"
+    fileprivate static let materialLibraryMarker = "mtllib"
+    fileprivate static let useMaterialMarker = "usemtl"
     
     fileprivate let scanner: ObjScanner
     fileprivate let basePath: String
+    fileprivate var materialCache: [String: Material] = [:]
     
     var data = Database()
     
@@ -108,7 +114,24 @@ public final class ObjLoader {
                     scanner.moveToNextLine()
                     continue
                 }
-
+                
+                if ObjLoader.isMaterialLibrary(markerString) {
+                    let filenames = try scanner.readTokens()
+                    try parseMaterialFiles(filenames)
+                    scanner.moveToNextLine()
+                    continue
+                }
+                
+                if ObjLoader.isUseMaterial(markerString) {
+                    let materialName = try scanner.readString() as String
+                    
+                    guard let material = self.materialCache[materialName] else {
+                        throw ObjLoadingError.unexpectedFileFormat(error: "Material \(materialName) referenced before it was definied")
+                    }
+                    
+                    data.material = material
+                    scanner.moveToNextLine()
+                }
                 scanner.moveToNextLine()
             }
         
@@ -184,9 +207,39 @@ extension ObjLoader {
         return marker.count == 1 && marker == faceMarker
     }
     
+    fileprivate static func isMaterialLibrary(_ marker: String) -> Bool {
+        return marker  == materialLibraryMarker
+    }
+    
+    fileprivate static func isUseMaterial(_ marker: String) -> Bool {
+        return marker == useMaterialMarker
+    }
     
     fileprivate func resetState() {
         scanner.reset()
         data = Database()
     }
+    
+    fileprivate func parseMaterialFiles(_ filenames: [NSString]) throws {
+        for filename in filenames {
+            let fullPath = basePath + "/" + (filename as String)
+            
+            do {
+                let fileContents = try String(contentsOfFile: fullPath, encoding: String.Encoding.utf8)
+                
+                let loader = MaterialLoader(source: fileContents,
+                                            basePath: basePath)
+                let materials = try loader.read()
+                for material in materials {
+                    materialCache[material.name] = material
+                }
+            } catch MaterialLoadingError.unexpectedFileFormat(let msg) {
+                throw ObjLoadingError.unexpectedFileFormat(error: msg)
+            } catch {
+                throw ObjLoadingError.unexpectedFileFormat(error: "Invalid material file at \(fullPath)")
+            }
+        }
+    }
+    
+    
 }

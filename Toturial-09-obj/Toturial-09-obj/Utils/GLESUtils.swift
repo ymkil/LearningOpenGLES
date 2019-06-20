@@ -125,16 +125,29 @@ struct GLESUtils {
         return vbo
     }
     
-    
     static func createTexture2D(fileName: String) -> GLuint
     {
-        var texture: GLuint = 0
-        
         // 1获取图片的CGImageRef
         guard let spriteImage = UIImage(named: fileName)?.cgImage else {
             print("Failed to load image \(fileName)")
-            return texture
+            return 0
         }
+        return GLESUtils.createTexture2DFactory(spriteImage)
+    }
+    
+    static func createTexture2D(filePath: String) -> GLuint
+    {
+        // 1获取图片的CGImageRef
+        guard let spriteImage = UIImage(contentsOfFile: filePath)?.cgImage else {
+            print("Failed to load image \(filePath)")
+            return 0
+        }
+        return GLESUtils.createTexture2DFactory(spriteImage)
+    }
+    
+    fileprivate static func createTexture2DFactory(_ spriteImage: CGImage) -> GLuint {
+        var texture: GLuint = 0
+        
         // 读取图片大小
         let width = spriteImage.width
         let height = spriteImage.height

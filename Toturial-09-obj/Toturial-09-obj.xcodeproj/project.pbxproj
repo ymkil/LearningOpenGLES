@@ -7,6 +7,8 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		E861898322B9DDA600B40022 /* MaterialLoader.swift in Sources */ = {isa = PBXBuildFile; fileRef = E861898222B9DDA600B40022 /* MaterialLoader.swift */; };
+		E861899622BA0AEC00B40022 /* Material.swift in Sources */ = {isa = PBXBuildFile; fileRef = E861899522BA0AEC00B40022 /* Material.swift */; };
 		E87F635A22B8D11100959BD7 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F635922B8D11100959BD7 /* AppDelegate.swift */; };
 		E87F635C22B8D11100959BD7 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F635B22B8D11100959BD7 /* ViewController.swift */; };
 		E87F635F22B8D11100959BD7 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E87F635D22B8D11100959BD7 /* Main.storyboard */; };
@@ -23,10 +25,11 @@
 		E87F637F22B8D1B200959BD7 /* AGLKView.swift in Sources */ = {isa = PBXBuildFile; fileRef = E87F637E22B8D1B200959BD7 /* AGLKView.swift */; };
 		E87F638222B8D45800959BD7 /* shaderv.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E87F638122B8D45800959BD7 /* shaderv.glsl */; };
 		E87F638422B8D47400959BD7 /* shaderf.glsl in Resources */ = {isa = PBXBuildFile; fileRef = E87F638322B8D47400959BD7 /* shaderf.glsl */; };
-		E87F638622B8D8AA00959BD7 /* dungeon_01.png in Resources */ = {isa = PBXBuildFile; fileRef = E87F638522B8D8AA00959BD7 /* dungeon_01.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		E861898222B9DDA600B40022 /* MaterialLoader.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MaterialLoader.swift; sourceTree = "<group>"; };
+		E861899522BA0AEC00B40022 /* Material.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Material.swift; sourceTree = "<group>"; };
 		E87F635622B8D11100959BD7 /* Toturial-09-obj.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Toturial-09-obj.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		E87F635922B8D11100959BD7 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E87F635B22B8D11100959BD7 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -45,7 +48,6 @@
 		E87F637E22B8D1B200959BD7 /* AGLKView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AGLKView.swift; sourceTree = "<group>"; };
 		E87F638122B8D45800959BD7 /* shaderv.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = shaderv.glsl; sourceTree = "<group>"; };
 		E87F638322B8D47400959BD7 /* shaderf.glsl */ = {isa = PBXFileReference; lastKnownFileType = text; path = shaderf.glsl; sourceTree = "<group>"; };
-		E87F638522B8D8AA00959BD7 /* dungeon_01.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = dungeon_01.png; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -83,7 +85,6 @@
 				E87F637022B8D15500959BD7 /* ObjLoader */,
 				E87F636B22B8D13700959BD7 /* Utils */,
 				E87F635922B8D11100959BD7 /* AppDelegate.swift */,
-				E87F638522B8D8AA00959BD7 /* dungeon_01.png */,
 				E87F635B22B8D11100959BD7 /* ViewController.swift */,
 				E87F637E22B8D1B200959BD7 /* AGLKView.swift */,
 				E87F635D22B8D11100959BD7 /* Main.storyboard */,
@@ -109,6 +110,8 @@
 				E87F637122B8D15500959BD7 /* ArmoryHelper.swift */,
 				E87F637222B8D15500959BD7 /* Scanner.swift */,
 				E87F637322B8D15500959BD7 /* ObjLoader.swift */,
+				E861898222B9DDA600B40022 /* MaterialLoader.swift */,
+				E861899522BA0AEC00B40022 /* Material.swift */,
 			);
 			path = ObjLoader;
 			sourceTree = "<group>";
@@ -198,7 +201,6 @@
 				E87F637D22B8D17700959BD7 /* key.bmp in Resources */,
 				E87F636122B8D11300959BD7 /* Assets.xcassets in Resources */,
 				E87F635F22B8D11100959BD7 /* Main.storyboard in Resources */,
-				E87F638622B8D8AA00959BD7 /* dungeon_01.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -209,11 +211,13 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E861899622BA0AEC00B40022 /* Material.swift in Sources */,
 				E87F636E22B8D13700959BD7 /* GLKMatrix+Array.swift in Sources */,
 				E87F635C22B8D11100959BD7 /* ViewController.swift in Sources */,
 				E87F637422B8D15500959BD7 /* ArmoryHelper.swift in Sources */,
 				E87F637F22B8D1B200959BD7 /* AGLKView.swift in Sources */,
 				E87F636F22B8D13700959BD7 /* GLESUtils.swift in Sources */,
+				E861898322B9DDA600B40022 /* MaterialLoader.swift in Sources */,
 				E87F637622B8D15500959BD7 /* ObjLoader.swift in Sources */,
 				E87F637522B8D15500959BD7 /* Scanner.swift in Sources */,
 				E87F635A22B8D11100959BD7 /* AppDelegate.swift in Sources */,

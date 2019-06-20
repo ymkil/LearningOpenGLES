@@ -30,9 +30,9 @@ class ArmoryHelper {
             throw ArmoryLoadingErrors.NotFound
         }
         
-        let string = try NSString(contentsOfFile: path, encoding: String.Encoding.utf8.rawValue)
+        let string = try String(contentsOfFile: path, encoding: String.Encoding.utf8)
         
-        return string as String
+        return string
     }
     
     func loadMtlArmory(_ name: String) throws -> String {
